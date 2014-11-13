@@ -1,15 +1,19 @@
 CMS-Blog v0.1
 ============
 Plantilla para desarrollo progresivo de un CMS para generar un blog básico usando PHP+MySql.
-La versión más alta es una versión más completa del anterior.
+Un número de versión alto indica que es una versión avanzada respecto a las anteriores.
 En cada versión se irán revisando diferentes aspectos de PHP+MySql.
 
 Secciones CMS
 ------------
-- Vista Blog
-- Vista Admin
+- Blog
+- Administrador
 
-Vista Admin
+Blog
+----
+- Vista general visitantes
+
+Administrador
 -----------
 - Configuracion Blog
 	- Nombre del Blog
