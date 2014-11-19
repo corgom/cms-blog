@@ -6,7 +6,7 @@ En cada versión se irán revisando diferentes aspectos de PHP+MySql.
 
 Secciones CMS
 ------------
-- Blog
+- Blog/Inicio
 - Administrador
 
 Blog
