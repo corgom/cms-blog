@@ -1,19 +1,9 @@
 <?php
-///////// <<INICIA bloque no editable //////////////
-session_start();
-if(!isset($_SESSION["user"])){
-    header("Location: login.php");
-}
-///////// >>TERMINA bloque no editable /////////////
-
-
-/* ------ A partir de aqui va tu codigo PHP ------ */
-
-
-
-
+include("inc/permiso.php");
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -28,6 +18,7 @@ if(!isset($_SESSION["user"])){
     
     <h1>Administración</h2>
     <h2>Subtitulo del blog</h2>
+    <p> id_user: <?php echo $_SESSION["usuario"]; ?> </p>
 
 <?php
 include "inc/menu.php"

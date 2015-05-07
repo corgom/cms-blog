@@ -1,45 +1,30 @@
-<?php 
+<?php
 session_start();
-
-$usuariovalido = "test";
-$passwordvalido = "test";
-
-$msgerror = "<p> Usuario y/o contraseña invalido </p>";
-$msgvacio = "<p> Usuario y/o contrasena vacios </p>";
-
+include("inc/validar.php");
 $name = "";
-$error = false; 
-$vacio = false;
+$msgerror = "";
 
+if (isset($_POST["nombre"]) and isset($_POST["password"])){
+    
+    $name = $_POST["nombre"];
+    $pass = $_POST["password"];
 
-if (isset($_GET["nombre"]) and (isset($_GET["password"])))
-{
-    $name = $_GET["nombre"];
-    $pass = $_GET["password"];
+    $id_user = obtener_id_usuario($name, $pass);
 
-    if($name==""or $pass=="")
+    if ($id_user > 0)
     {
-        $vacio=true;
+        $_SESSION["usuario"] = $id_user;
+        header("Location: admin.php");
     }
-    else
-    {
-        if ($name == $usuariovalido and $pass ==$passwordvalido)
-    {
-        $_SESSION["user"]=$name;
-        
-    header("Location: admin.php");    
-
-    }
-    else
-    {
-        $error = true;
-
+    else{
+        $msgerror = "<p>Usuario y/o contraseña invalidos</p>";       
     }
 }
-
-   
-}
+         
 ?>
+
+
+
 
 <!DOCTYPE html>
 
@@ -55,40 +40,27 @@ if (isset($_GET["nombre"]) and (isset($_GET["password"])))
     <img alt="header" src="img/back-header.png" width="760" height="120">
     
     <h1>Acceso</h2>
-    <h2><?php
-    ?></h2>
+    
 
     
-    <?php
-include "inc/menu.php"
+    
+<?php
+echo $msgerror;
 ?>
 
-<?php
-    if ( $error ) 
-    {
-    echo "$msgerror";
-    }
 
-?>    
-
-<?php
-    if ( $vacio ) 
-    {
-    echo "$msgvacio";
-    }
-
-?> 
-
-<form> 
-<label> usuario:</label>
-    <input type= "text" name= "nombre" value = 
-    "<?php          
-    echo $name;
-    ?>">
-
+<form method = "post"> 
+    <label> usuario:</label>
+    <input  type= "text" 
+            name= "nombre" 
+            value =  "<?php  echo $name;  ?>">      
+    <br />
+                                                     
     <label> password:</label>
     <input type= "password" name= "password">
-    <button type= "submit"> enviar </button>
+    <br />
+
+    <button type= "submit">enviar</button>
 
 </form>
 </body>

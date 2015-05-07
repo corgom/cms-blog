@@ -1,5 +1,6 @@
-<ol>
-    <li><a href="nuevo.html">Nuevo</a>
-    <li><a href="editar.html">Editar</a>
-    <li><a href="borrar.html">Borrar</a>
-</ol>
+<ul>
+    <li><a href="nuevo.php">Nuevo</a>
+    <li><a href="editar.php">Editar</a>
+    <li><a href="borrar.php">Borrar</a>
+	<li><a href="salir.php">Salir</a>
+</ul>
