@@ -31,7 +31,7 @@ activo char(1) NULL DEFAULT '1'
 CREATE TABLE articulo(
 id_articulo int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 id_usuario int NOT NULL,
-fechaCreacion datetime NOT NULL,
+fecha_creacion datetime NOT NULL,
 titulo varchar(200) NOT NULL,
 texto varchar(2000) NOT NULL
 );
