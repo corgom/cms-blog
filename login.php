@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("inc/configuracion.php");
 include("inc/validar.php");
 $name = "";
 $msgerror = "";

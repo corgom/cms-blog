@@ -9,7 +9,12 @@ function obtener_id_usuario($usuario,
         return false;
     }
     else{
-        $db = new mysqli("localhost", "root", "", "cmsblog");
+        global $dbHost;
+        global $dbUsuario;
+        global $dbPassword;
+        global $dbNombre;
+        
+        $db = new mysqli($dbHost, $dbUsuario, $dbPassword, $dbNombre);
         if ($db->connect_errno>0){
             die("Error de conexion a bases de datos.");
         }
