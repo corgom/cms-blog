@@ -1,3 +1,19 @@
+<?php
+///////// <<INICIA bloque no editable //////////////
+session_start();
+if(!isset($_SESSION["user"])){
+	header("Location: login.php");
+}
+///////// >>TERMINA bloque no editable /////////////
+
+
+/* ------ A partir de aqui va tu codigo PHP ------ */
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 

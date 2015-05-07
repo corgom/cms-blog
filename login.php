@@ -1,27 +1,46 @@
-<?php
+<?php 
+session_start();
 
-$usuarioValido  = "pollo";
-$passwordValido = "22";
+$usuariovalido = "test";
+$passwordvalido = "test";
 
-$msgerror="<p>lo que agregaste no es valido</p>";
+$msgerror = "<p> Usuario y/o contraseña invalido </p>";
+$msgvacio = "<p> Usuario y/o contrasena vacios </p>";
 
-$error=false;
+$name = "";
+$error = false; 
+$vacio = false;
 
-if (isset($_GET["nombre"], $_GET["password"])){
 
-    $name= $_GET["nombre"];
-    $pass= $_GET["password"];
+if (isset($_GET["nombre"]) and (isset($_GET["password"])))
+{
+    $name = $_GET["nombre"];
+    $pass = $_GET["password"];
 
-    if ($name==$usuarioValido and $pass==$passwordValido){
-        header("Location:admin.php");
+    if($name==""or $pass=="")
+    {
+        $vacio=true;
     }
     else
     {
-        $error=true;
-    
+        if ($name == $usuariovalido and $pass ==$passwordvalido)
+    {
+        $_SESSION["user"]=$name;
+        
+    header("Location: admin.php");    
+
+    }
+    else
+    {
+        $error = true;
+
     }
 }
+
+   
+}
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -39,24 +58,34 @@ if (isset($_GET["nombre"], $_GET["password"])){
     <h2><?php
     ?></h2>
 
+    
     <?php
 include "inc/menu.php"
 ?>
 
-    
 <?php
-if ($error) {
+    if ( $error ) 
+    {
     echo "$msgerror";
-}
+    }
 
-?>
+?>    
+
+<?php
+    if ( $vacio ) 
+    {
+    echo "$msgvacio";
+    }
+
+?> 
+
 <form> 
 <label> usuario:</label>
-    <input type= "text" name= "nombre" value=
-    "<?php 
-echo $name;
-    ?>"
-    >
+    <input type= "text" name= "nombre" value = 
+    "<?php          
+    echo $name;
+    ?>">
+
     <label> password:</label>
     <input type= "password" name= "password">
     <button type= "submit"> enviar </button>
