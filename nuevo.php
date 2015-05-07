@@ -25,7 +25,13 @@ include "inc/menu.php"
 include "inc/menu-admin.php"
 ?>
 
-
+<form method="post" action="nuevo-guarda.php">
+	<label>Titulo del articulo</label><br>
+	<input type="text" name="titulo"></input><br>
+	<label>Texto del articulo</label><br>
+	<textarea rows="4" cols="50" name="area"></textarea><br>
+	<button type = "submit">Guardar</button><br>
+</form>
 
 </body>
 
